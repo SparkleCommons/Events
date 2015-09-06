@@ -1,5 +1,7 @@
-package com.github.qrokodial.sparkle.events;
+package com.github.qrokodial.sparkle.events.emission;
 
+import com.github.qrokodial.sparkle.events.Event;
+import com.github.qrokodial.sparkle.events.EventListener;
 import com.github.qrokodial.sparkle.events.filtering.ListenerFilter;
 import com.github.qrokodial.sparkle.events.util.Priority;
 
@@ -9,14 +11,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class EventHandler {
+public class EventManager implements EventEmitter {
     private List<EventListener> listeners;
     private Map<EventListener, List<ListenerFilter>> filterMap;
 
     /**
      * Instantiates the class.
      */
-    public EventHandler() {
+    public EventManager() {
         listeners = new ArrayList<>();
         filterMap = new ConcurrentHashMap<>();
     }
@@ -27,6 +29,7 @@ public class EventHandler {
      * @param priority indicates the order/priority in which an event will travel through event listeners
      * @param listeners
      */
+    @Override
     public void registerListeners(Priority priority, EventListener... listeners) {
         for (EventListener listener : listeners) {
             registerListener(listener);
@@ -38,6 +41,7 @@ public class EventHandler {
      *
      * @param listeners
      */
+    @Override
     public void registerListeners(EventListener... listeners) {
         registerListeners(Priority.NORMAL, listeners);
     }
@@ -49,6 +53,7 @@ public class EventHandler {
      * @param listener
      * @param filters
      */
+    @Override
     public void registerListener(Priority priority, EventListener listener, ListenerFilter... filters) {
         // Attempt to put it in order. If the list ends before the index, it is safe to just stick it at the end.
         try {
@@ -72,6 +77,7 @@ public class EventHandler {
      * @param listener
      * @param filters
      */
+    @Override
     public void registerListener(EventListener listener, ListenerFilter... filters) {
         registerListener(Priority.NORMAL, listener, filters);
     }
@@ -81,6 +87,7 @@ public class EventHandler {
      *
      * @param events
      */
+    @Override
     public void pushEvents(Event... events) {
         for(Event event : events) {
             pushEvent(event);
