@@ -32,7 +32,7 @@ public class EventManager implements EventEmitter {
     @Override
     public void registerListeners(Priority priority, EventListener... listeners) {
         for (EventListener listener : listeners) {
-            registerListener(listener);
+            registerListener(priority, listener);
         }
     }
 
