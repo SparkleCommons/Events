@@ -39,6 +39,13 @@ public interface EventEmitter {
     void registerListener(EventListener listener, ListenerFilter... filters);
 
     /**
+     * Unregisters an event listener.
+     *
+     * @param listener
+     */
+    void unregisterListener(EventListener listener);
+
+    /**
      * Pushes events into the system. Once in the system, they will be handled by event listeners.
      *
      * @param events

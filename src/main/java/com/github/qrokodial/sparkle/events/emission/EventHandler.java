@@ -95,6 +95,18 @@ public class EventHandler implements EventEmitter {
     }
 
     /**
+     * Unregisters an event listener.
+     *
+     * @param listener
+     */
+    @Override
+    public void unregisterListener(EventListener listener) {
+        if (manager.isPresent()) {
+            manager.get().unregisterListener(listener);
+        }
+    }
+
+    /**
      * Pushes events into the system. Once in the system, they will be handled by event listeners.
      *
      * @param events

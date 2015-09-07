@@ -83,6 +83,17 @@ public class EventManager implements EventEmitter {
     }
 
     /**
+     * Unregisters an event listener.
+     *
+     * @param listener
+     */
+    @Override
+    public void unregisterListener(EventListener listener) {
+        listeners.remove(listener);
+        filterMap.remove(listener);
+    }
+
+    /**
      * Pushes events into the system. Once in the system, they will be handled by event listeners.
      *
      * @param events
