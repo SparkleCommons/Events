@@ -1,6 +1,6 @@
-package com.github.qrokodial.sparkle.events.filtering;
+package com.qrokodial.sparkle.events.filtering;
 
-import com.github.qrokodial.sparkle.events.Event;
+import com.qrokodial.sparkle.events.Event;
 
 public interface ListenerFilter {
     /**

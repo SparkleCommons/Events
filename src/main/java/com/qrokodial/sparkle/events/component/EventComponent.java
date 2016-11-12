@@ -1,7 +1,7 @@
-package com.github.qrokodial.sparkle.events.component;
+package com.qrokodial.sparkle.events.component;
 
-import com.github.qrokodial.sparkle.components.SparkleComponent;
-import com.github.qrokodial.sparkle.events.Event;
+import com.qrokodial.sparkle.components.SparkleComponent;
+import com.qrokodial.sparkle.events.Event;
 
 public class EventComponent extends SparkleComponent<Event> {
     /**

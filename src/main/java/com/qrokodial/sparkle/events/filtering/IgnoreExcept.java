@@ -1,7 +1,7 @@
-package com.github.qrokodial.sparkle.events.filtering;
+package com.qrokodial.sparkle.events.filtering;
 
-import com.github.qrokodial.sparkle.events.Event;
-import com.github.qrokodial.sparkle.events.component.EventComponent;
+import com.qrokodial.sparkle.events.Event;
+import com.qrokodial.sparkle.events.component.EventComponent;
 
 public class IgnoreExcept implements ListenerFilter {
     private Class<? extends EventComponent>[] componentClasses;

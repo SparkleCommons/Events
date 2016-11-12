@@ -1,6 +1,6 @@
-package com.github.qrokodial.sparkle.events.component;
+package com.qrokodial.sparkle.events.component;
 
-import com.github.qrokodial.sparkle.events.util.Cancellable;
+import com.qrokodial.sparkle.events.util.Cancellable;
 
 public class CancellableComponent extends EventComponent implements Cancellable {
     private boolean cancelled;

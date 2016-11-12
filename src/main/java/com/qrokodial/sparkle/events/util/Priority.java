@@ -1,4 +1,4 @@
-package com.github.qrokodial.sparkle.events.util;
+package com.qrokodial.sparkle.events.util;
 
 public enum Priority {
     /**

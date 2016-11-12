@@ -1,7 +1,7 @@
-package com.github.qrokodial.sparkle.events.filtering;
+package com.qrokodial.sparkle.events.filtering;
 
-import com.github.qrokodial.sparkle.events.Event;
-import com.github.qrokodial.sparkle.events.component.CancellableComponent;
+import com.qrokodial.sparkle.events.Event;
+import com.qrokodial.sparkle.events.component.CancellableComponent;
 
 public class IgnoreCancelled implements ListenerFilter {
     /**
