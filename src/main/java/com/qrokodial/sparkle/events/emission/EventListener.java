@@ -5,12 +5,14 @@ import com.qrokodial.sparkle.events.EventSubscriber;
 import com.qrokodial.sparkle.events.filtering.IgnoreExcept;
 import com.qrokodial.sparkle.events.filtering.ListenerFilter;
 import com.qrokodial.sparkle.events.util.Priority;
+import com.qrokodial.sparkle.utilities.collections.ArrayUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EventListener implements Comparable<EventListener> {
     private Object instance;
@@ -30,7 +32,7 @@ public class EventListener implements Comparable<EventListener> {
         this.instance = instance;
         this.method = method;
         this.subscriber = subscriber;
-        this.filters = Collections.synchronizedList(Arrays.asList(filters));
+        this.filters = Collections.synchronizedList(Arrays.stream(filters).collect(Collectors.toList()));
 
         if (subscriber.requires().length > 0) {
             this.filters.add(new IgnoreExcept(subscriber.requires()));
